@@ -1,0 +1,100 @@
+﻿{
+  "handler": "Microsoft.Compute.MultiVm",
+  "version": "0.0.1-preview",
+  "parameters": {
+    "basics": [
+      {
+        "name": "webAppHostingPlanName",
+        "type": "Microsoft.Common.TextBox",
+        "label": "Hosting Plan Name",
+        "toolTip": "Hosting plan name",
+        "osPlatform": "Windows"
+      },
+      {
+        "name": "webAppSkuName",
+        "type": "Microsoft.Common.DropDown",
+        "label": "Pricing Tier",
+        "defaultValue": "F1",
+        "toolTip": "",
+        "constraints": {
+          "allowedValues": [
+            {
+              "label": "F1",
+              "value": "F1"
+            },
+            {
+              "label": "D1",
+              "value": "D1"
+            },
+            {
+              "label": "B1",
+              "value": "B1"
+            },
+            {
+              "label": "B2",
+              "value": "B2"
+            },
+            {
+              "label": "B3",
+              "value": "B3"
+            },
+            {
+              "label": "S1",
+              "value": "S1"
+            },
+            {
+              "label": "S2",
+              "value": "S2"
+            },
+            {
+              "label": "S3",
+              "value": "S3"
+            },
+            {
+              "label": "P1",
+              "value": "P1"
+            },
+            {
+              "label": "P2",
+              "value": "P2"
+            },
+            {
+              "label": "P3",
+              "value": "P3"
+            },
+            {
+              "label": "P4",
+              "value": "P4"
+            }
+          ]
+        }
+      }
+    ],
+    "steps": [
+      {
+        "name": "DetailConfigurations",
+        "label": "some details",
+        "subLabel": {
+          "preValidation": "Configure the web app",
+          "postValidation": "Done"
+        },
+        "bladeTitle": "Your label",
+        "elements": [
+          {
+            "name": "elementname",
+            "type": "Microsoft.Common.TextBox",
+            "label": "Element Name",
+            "constraints": {
+              "required": true
+            }
+          }
+        ]
+      }
+    ],
+    "outputs": {
+      "webAppHostingPlanName": "[basics('webAppHostingPlanName')]",
+      "webAppSkuName": "[basics('webAppSkuName')]",
+      "elementName": "[steps('DetailConfigurations').elementname]"
+    }
+  }
+}
